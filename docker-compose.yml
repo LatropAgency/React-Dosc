@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  mongodb:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_DATABASE: ZeslaGroup
+    volumes:
+      - ./mysetup.js:/docker-entrypoint-initdb.d/mysetup.js
+  web:
+    build:
+      context: app
+      dockerfile: Dockerfile
+    volumes:
+      - ./app/:/app
+    ports:
+      - 5000:5000
+    env_file:
+      - .env
+    links:
+      - mongodb
+

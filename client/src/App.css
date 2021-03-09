@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, .wrapper {
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    max-width: 1400px;
+    width: 70%;
+    margin: auto;
+}
+
+.auth {
+    display: flex;
+}
