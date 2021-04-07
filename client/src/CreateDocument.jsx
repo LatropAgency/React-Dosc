@@ -5,7 +5,7 @@ import JoditEditor from "jodit-react";
 import Select from "@material-ui/core/Select";
 import Input from "@material-ui/core/Input";
 import MenuItem from "@material-ui/core/MenuItem";
-import {createDocument} from "./core/documents";
+import {ApiService} from "./ApiService";
 import {makeStyles} from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import SaveIcon from "@material-ui/icons/Save";
@@ -38,7 +38,7 @@ const CreateDocument = ({selectDocument, socket, company_id, setMessage, access_
     const saveDocument = async () => {
         try {
             if (validateTitle(title) && validateCompaniesCount(selectedCompanies)) {
-                let response = await createDocument(access_token, title, content, [...selectedCompanies, company_id]);
+                let response = await ApiService.createDocument(access_token, title, content, [...selectedCompanies, company_id]);
                 selectDocument(response.document_id);
                 socket.emit('document_list_update');
             }

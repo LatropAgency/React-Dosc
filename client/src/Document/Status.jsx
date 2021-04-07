@@ -19,9 +19,7 @@ const Status = ({companies, user, document, roles, company_id, approveDocument, 
                                     document.economist_approved.includes(id) ? "(approved)" : (
                                         company_id === id ? (
                                             <Button
-                                                onClick={() => {
-                                                    approveEconomist(document.id)
-                                                }}
+                                                onClick={() => approveEconomist(document.id)}
                                                 variant="outlined"
                                                 color={"primary"}>
                                                 Approve
@@ -34,9 +32,7 @@ const Status = ({companies, user, document, roles, company_id, approveDocument, 
                                     document.lawyer_approved.includes(id) ? "(approved)" : (
                                         company_id === id ? (
                                             <Button
-                                                onClick={() => {
-                                                    approveLawyer(document.id)
-                                                }}
+                                                onClick={() => approveLawyer(document.id)}
                                                 variant="outlined"
                                                 color={"primary"}>
                                                 Approve
@@ -50,9 +46,7 @@ const Status = ({companies, user, document, roles, company_id, approveDocument, 
                                     document.approved.includes(id) ? "(approved)" : (
                                         (document.lawyer_approved.includes(id) && document.economist_approved.includes(id) && company_id === id) ? (
                                             <Button
-                                                onClick={() => {
-                                                    approveDocument(document.id)
-                                                }}
+                                                onClick={() => approveDocument(document.id)}
                                                 variant="outlined"
                                                 color={"primary"}>
                                                 Approve

@@ -31,9 +31,7 @@ const SignInForm = ({signIn}) => {
                 <TextField style={{padding: 24}}
                            fullWidth={true}
                            placeholder="username"
-                           onChange={(e) => {
-                               setUsername(e.target.value);
-                           }}
+                           onChange={(e) => setUsername(e.target.value)}
                 />
                 <Button className={classes.btn} variant="contained"
                         fullWidth={true}

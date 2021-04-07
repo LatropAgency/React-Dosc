@@ -8,6 +8,8 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import AddIcon from '@material-ui/icons/Add';
 import ListIcon from '@material-ui/icons/List';
 import ArchiveIcon from '@material-ui/icons/Archive';
+import {useSelector} from "react-redux";
+import {selectUser} from "./features/user/userSlice";
 
 const useStyles = makeStyles({
     documentList: {
@@ -20,8 +22,9 @@ const useStyles = makeStyles({
 });
 
 
-const Header = ({user, logout, roles, switchDisplayedComponent}) => {
+const Header = ({logout, roles, switchDisplayedComponent}) => {
     const classes = useStyles();
+    const user = useSelector(selectUser);
 
     return (
         <AppBar position="static">
@@ -31,10 +34,8 @@ const Header = ({user, logout, roles, switchDisplayedComponent}) => {
                         ZeslaGroup
                     </Typography>
                     <nav>
-                        {user.id && (
+                        {user && user.id && (
                             <div>
-                                <Typography>
-                                </Typography>
                                 <Button
                                     className={classes.documentList}
                                     color={"inherit"}
@@ -61,7 +62,7 @@ const Header = ({user, logout, roles, switchDisplayedComponent}) => {
                                 </Button>
                             </div>
                         )}
-                        {!user.id && (
+                        {!user && (
                             <div>
                                 <Button
                                     color={"inherit"}

@@ -33,17 +33,13 @@ const SignUpForm = ({signUp, companies, roles}) => {
                 <TextField style={{padding: 24}}
                            fullWidth={true}
                            placeholder="username"
-                           onChange={(e) => {
-                               setUsername(e.target.value);
-                           }}
+                           onChange={(e) => setUsername(e.target.value)}
                 />
                 <InputLabel shrink id="company">Company</InputLabel>
                 <Select fullWidth={true}
                         labelId="company"
                         style={{marginBottom: "10px"}}
-                        onChange={(e) => {
-                            setCompanyId(e.target.value);
-                        }}
+                        onChange={(e) => setCompanyId(e.target.value)}
                         defaultValue={companies[0].id}
                         value={companyId}>
                     {companies.map(({id, name}) => {
@@ -54,9 +50,7 @@ const SignUpForm = ({signUp, companies, roles}) => {
                 <Select fullWidth={true}
                         labelId="role"
                         style={{marginBottom: "10px"}}
-                        onChange={(e) => {
-                            setRoleId(e.target.value);
-                        }}
+                        onChange={(e) => setRoleId(e.target.value)}
                         defaultValue={roles[0].id}
                         value={roleId}>
                     {roles.map(({id, name}) => {
@@ -66,9 +60,7 @@ const SignUpForm = ({signUp, companies, roles}) => {
                 <Button className={classes.btn} variant="contained"
                         color={"primary"}
                         fullWidth={true}
-                        onClick={() => {
-                            signUp(username, roleId, companyId)
-                        }}>
+                        onClick={() => signUp(username, roleId, companyId)}>
                     Sign Up
                 </Button>
             </Paper>

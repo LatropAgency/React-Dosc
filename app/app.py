@@ -229,6 +229,7 @@ def get_all_roles():
 
 @socketio.event
 def document_update():
+    print('qweqwe')
     emit('update_version_list', broadcast=True)
 
 

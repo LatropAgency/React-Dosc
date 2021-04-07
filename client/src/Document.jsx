@@ -102,6 +102,7 @@ const Details = ({document, user, roles, sendMessage, messages, updateDocument, 
                     config={config}
                     tabIndex={1}
                     onBlur={handleChangeContent}
+                    onChange={newContent => {}}
                 />
                 <Button
                     fullWidth={true}
